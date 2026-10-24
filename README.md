@@ -1,6 +1,8 @@
 # CusaSearcher
 
-[![Build Status](https://github.com/lantomorroww/CusaSearcher/actions/workflows/build.yml/badge.svg)](https://github.com/lantomorroww/CusaSearcher/actions)
+[![Build Status](https://github.com/lantomorroww/CusaSearcher/actions/workflows/build.yml/badge.svg)](https://github.com/lantomorroww/CusaSearcher/actions)# CusaSearcher
+
+[![Build and Test](https://github.com/lantomorroww/CusaSearcher/actions/workflows/build.yml/badge.svg)](https://github.com/lantomorroww/CusaSearcher/actions/workflows/build.yml)
 
 Приложение на Qt/C++ для поиска игр PlayStation по названию, коду диска (CUSA/PPSA) и синонимам, с информацией о локализации (наличие русского языка, субтитров, озвучки).
 
