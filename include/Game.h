@@ -11,4 +11,4 @@ struct Game {
     std::unordered_map<std::string, std::string> regionLocalization;
 };
 
-#endif // GAME_H
+#endif 
