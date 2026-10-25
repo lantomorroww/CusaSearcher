@@ -40,7 +40,6 @@ void MainWindow::setupUI()
     auto* central = new QWidget(this);
     setCentralWidget(central);
 
-    // Поиск
     searchEdit = new QLineEdit;
     searchEdit->setPlaceholderText("Введите название, код или синоним...");
     searchButton = new QPushButton("Найти");
@@ -48,7 +47,6 @@ void MainWindow::setupUI()
     platformCombo = new QComboBox;
     platformCombo->addItem("Все платформы");
 
-    // Таблица
     resultTable = new QTableWidget;
     resultTable->setColumnCount(3);
     resultTable->setHorizontalHeaderLabels({"Название игры", "Платформа", "Регионы / Коды"});
@@ -58,7 +56,6 @@ void MainWindow::setupUI()
 
     m_statusBar = statusBar();
 
-    // Медиа-кнопки
     selectGifBtn = new QPushButton("Выбрать GIF");
     stopGifBtn = new QPushButton("Убрать GIF");
     selectMusicBtn = new QPushButton("Выбрать музыку");
@@ -68,7 +65,6 @@ void MainWindow::setupUI()
     volumeSlider->setValue(50);
     volumeSlider->setFixedWidth(100);
 
-    // Layout
     auto* searchLayout = new QHBoxLayout;
     searchLayout->addWidget(platformCombo);
     searchLayout->addWidget(searchEdit);
@@ -89,7 +85,6 @@ void MainWindow::setupUI()
     mainLayout->addLayout(mediaLayout);
     mainLayout->addWidget(resultTable);
 
-    // Сигналы
     connect(searchButton, &QPushButton::clicked, this, &MainWindow::onSearchClicked);
     connect(searchEdit, &QLineEdit::returnPressed, this, &MainWindow::onSearchClicked);
     connect(addGameButton, &QPushButton::clicked, this, &MainWindow::onAddGameClicked);
@@ -99,7 +94,6 @@ void MainWindow::setupUI()
     connect(stopMusicBtn, &QPushButton::clicked, this, &MainWindow::onStopMusicClicked);
     connect(volumeSlider, &QSlider::valueChanged, this, &MainWindow::onVolumeChanged);
 
-    // Стили
     QString flatButtonStyle =
         "QPushButton {"
         "   background-color: #000000;"
