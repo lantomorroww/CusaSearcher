@@ -23,4 +23,4 @@ private:
     QComboBox* locCombo;
 };
 
-#endif // ADDGAMEDIALOG_H
+#endif 
