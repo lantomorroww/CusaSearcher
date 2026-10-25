@@ -7,4 +7,4 @@
 
 std::vector<Game> loadGamesFromFile(const std::string& filename);
 
-#endif // FILEHANDLER_H
+#endif
