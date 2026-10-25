@@ -56,4 +56,4 @@ private:
     SynonymIndex synonymIndex;
 };
 
-#endif // MAINWINDOW_H
+#endif
