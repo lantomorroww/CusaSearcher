@@ -16,4 +16,4 @@ void stopMusic();
 void setVolume(int volume);
 bool isMusicPlaying();
 
-#endif // UTILS_H
+#endif 
