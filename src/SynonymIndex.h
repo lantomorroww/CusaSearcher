@@ -22,4 +22,4 @@ private:
     void rebuildReverseIndex();
 };
 
-#endif // SYNONYMINDEX_H
+#endif 
