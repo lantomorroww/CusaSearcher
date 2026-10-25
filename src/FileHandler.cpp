@@ -30,7 +30,6 @@ std::vector<Game> loadGamesFromFile(const std::string& filename) {
     for (const auto& item : data) {
         Game game;
 
-        // --- title ---
         if (item.contains("title") && item["title"].is_string()) {
             game.title = item["title"].get<std::string>();
         } else {
@@ -38,7 +37,6 @@ std::vector<Game> loadGamesFromFile(const std::string& filename) {
             continue;
         }
 
-        // --- platform ---
         if (item.contains("platform") && item["platform"].is_string()) {
             game.platform = item["platform"].get<std::string>();
         } else {
@@ -49,7 +47,6 @@ std::vector<Game> loadGamesFromFile(const std::string& filename) {
         std::unordered_map<std::string, std::string> tempLoc;
         std::string fallbackCode;
 
-        // --- regionCodes ---
         if (item.contains("regionCodes") && item["regionCodes"].is_object()) {
             for (auto it = item["regionCodes"].begin(); it != item["regionCodes"].end(); ++it) {
                 std::string region = it.key();
@@ -57,14 +54,13 @@ std::vector<Game> loadGamesFromFile(const std::string& filename) {
 
                 std::string value = it.value().get<std::string>();
                 trim(value);
-
-                // Похоже ли значение на код диска?
+                
                 bool looksLikeCode = (value.length() >= 5
                                       && value != "О" && value != "С"
                                       && value != "---" && value != "C");
 
                 if (looksLikeCode) {
-                    // Разделяем код и суффикс локализации (например "PPSA12345 (full)")
+                    
                     std::string code;
                     std::string suffix;
                     size_t pos = value.find('(');
@@ -80,7 +76,6 @@ std::vector<Game> loadGamesFromFile(const std::string& filename) {
                         code = value;
                     }
 
-                    // Дополнительная фильтрация мусорных кодов
                     if (!code.empty()
                         && code != "---"
                         && code != "C" && code != "С"
@@ -108,7 +103,6 @@ std::vector<Game> loadGamesFromFile(const std::string& filename) {
             }
         }
 
-        // --- regionLocalization (отдельное поле, переопределяет суффиксы) ---
         if (item.contains("regionLocalization") && item["regionLocalization"].is_object()) {
             for (auto it = item["regionLocalization"].begin(); it != item["regionLocalization"].end(); ++it) {
                 std::string region = it.key();
@@ -122,7 +116,6 @@ std::vector<Game> loadGamesFromFile(const std::string& filename) {
             }
         }
 
-        // --- Fallback: для регионов с локализацией, но без кода ---
         if (fallbackCode.empty() && !tempCodes.empty()) {
             fallbackCode = tempCodes.begin()->second;
         }
